@@ -1,7 +1,7 @@
 /* cs210sil.h
  * =============================================================
- *    Name:
- * Section:
+ *    Name: Lucas Briggs
+ * Section: T1/2 Kloenne
  * Purpose: Creating a safe input library
  * =============================================================
  */

@@ -1,8 +1,8 @@
 /* lab09-01.c
  * =============================================================
- *    Name:
- * Section:
- * Purpose:
+ *    Name: Lucas Briggs 27 Aug 2024
+ * Section: T1/2 Kloenne
+ * Purpose: Practice using string functions.
  * =============================================================
  */
 
@@ -40,8 +40,8 @@ unsigned int ELFHash(const char* str, unsigned int length) {
 int main(void) {
 
     // TODO String Variables
-    char newPass[] = "";
-    char repeatPass[] = "";
+    char newPass[51] = "";
+    char repeatPass[51] = "";
     int newPassLen = 0;
 
 
@@ -49,10 +49,11 @@ int main(void) {
     printf("enter a new password NO SPACES ");
     printf("(%d to %d chars long): ", MIN_PASSW_LEN, MAX_PASSW_LEN);
     // TODO scanf
-
+    scanf("%s", newPass);
 
     // Check the Length of the New Password Candidate
     // TODO Get String Length
+    newPassLen = strlen(newPass);
 
     if(newPassLen < MIN_PASSW_LEN){
         printf("new password is too short - terminating\n");
@@ -60,22 +61,26 @@ int main(void) {
     }
 
     // TODO Check to See if Password is Too Long
-
+    if(newPassLen > MAX_PASSW_LEN){
+        printf("new password is too long - terminating\n");
+        exit(1);
+    }
 
     // Get the Password a Second Time
     printf("enter it again: ");
     // TODO Get the Password Again
-
+    scanf("%s", repeatPass);
 
     // Check to See if the Entries Match
     // TODO Compare String 
-    //    printf("new password accepted\n");
-    //    printf("it will be stored as: %0x32u\n", ELFHash(newPass, newPassLen));
-    //} 
-    //else {
-    //    printf("passwords do not match - terminating\n");
-    //    exit(1);  
-    //}
+    if (strcmp(newPass, repeatPass) == 0) {
+       printf("new password accepted\n");
+       printf("it will be stored as: %0x32u\n", ELFHash(newPass, newPassLen));
+    } 
+    else {
+       printf("passwords do not match - terminating\n");
+       exit(1);  
+    }
 
     return 0;
 }
